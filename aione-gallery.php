@@ -31,7 +31,7 @@ function aione_gallery_register_styles() {
 
 /* =================================================== Main Function =========================================== */
 function aione_gallery_shortcode( $attr ) {
-
+	/*
 	$post = get_post();
 	static $instance = 0;
 	$instance++;
@@ -46,18 +46,21 @@ function aione_gallery_shortcode( $attr ) {
 	if ( $output != '' ) {
 		return $output;
 	}
+	*/
+	
 	$html5 = current_theme_supports( 'html5', 'gallery' );
 	$atts = shortcode_atts( array(
-	'order'       => 'ASC',
-	'orderby'     => 'menu_order ID',
-	'id'          => $post ? $post->ID : 0,
+	//'order'       => 'ASC',
+	//'orderby'     => 'menu_order ID',
+	//'id'          => $post ? $post->ID : 0,
+	'ids'         =>	'',
 	'itemtag'     => $html5 ? 'figure'     : 'dl',
 	'icontag'     => $html5 ? 'div'        : 'dt',
 	'captiontag'  => $html5 ? 'figcaption' : 'dd',
 	'columns'     =>  4,
 	'size'        => 'medium',
-	'include'     => '',
-	'exclude'     => '',
+	//'include'     => '',
+	//'exclude'     => '',
 	'link'        => '',
 	'type'        => 'wall',
 	'width'       => '100%',
@@ -71,7 +74,19 @@ function aione_gallery_shortcode( $attr ) {
 	'direction'   => 'bottom'
 	), $attr, 'gallery' );
 
+	$errors = array();
+	$attachments = explode(',',$atts['ids']);
+	
+	if(trim($atts['ids']) == ''){
+		$errors[] = "ids are empty";
+	}
+	
+	
+	
+	
+	
 
+	/*
 	$id = intval( $atts['id'] );
 	if ( ! empty( $atts['include'] ) ) {
 		$_attachments = get_posts( array( 'include' => $atts['include'], 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $atts['order'], 'orderby' => $atts['orderby'] ) );
@@ -94,6 +109,9 @@ function aione_gallery_shortcode( $attr ) {
 		}
 		return $output;
 	}
+	*/
+	
+	
 	$type = sanitize_html_class( $atts['type'] );
 	$width = $atts['width'];
 	$height = $atts['height'];
@@ -193,7 +211,7 @@ function aione_gallery_shortcode( $attr ) {
 	$gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class} {$style} {$margin_class} {$outline} animation-{$animation} transition-{$transition}-{$direction}'>";
 	$output = apply_filters( 'gallery_style', $gallery_style . $gallery_div );
 	$i = 0;
-	foreach ( $attachments as $id => $attachment ) {
+	foreach ( $attachments as $key => $id ) {
 		$i++;
 		$attr = ( trim( $attachment->post_excerpt ) ) ? array( 'aria-describedby' => "$selector-$id" ) : '';
 		if ( ! empty( $atts['link'] ) && 'file' === $atts['link'] ) {
