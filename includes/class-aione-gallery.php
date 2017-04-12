@@ -295,6 +295,7 @@ class Aione_Gallery {
 		$float = is_rtl() ? 'right' : 'left';
 		$selector = "gallery-{$instance}";
 		$gallery_style = '';
+		/*
 		if ( apply_filters( 'use_default_gallery_style', ! $html5 ) ) {
 			
 			$gallery_style = "
@@ -314,7 +315,7 @@ class Aione_Gallery {
 			#{$selector} .gallery-caption {
 			margin-left: 0;
 			}
-			/* see gallery_shortcode() in wp-includes/media.php */
+			//see gallery_shortcode() in wp-includes/media.php 
 			</style>\n\t\t";
 
 		} else{
@@ -349,6 +350,7 @@ class Aione_Gallery {
 			}
 			</style>\n\t\t";
 		}
+		*/
 
 		$size_class = sanitize_html_class( $atts['size'] );
 		$gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class} {$style} {$margin_class} {$outline} animation-{$animation} transition-{$transition}-{$direction}'>";
