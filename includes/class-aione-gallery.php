@@ -394,15 +394,19 @@ class Aione_Gallery {
 				</{$captiontag}>";
 			}	
 			$output .= "</{$itemtag}>";
+			/*
 			if ( ! $html5 && $columns > 0 && $i % $columns == 0 ) {
 				$output .= '<br style="clear: both" />';
 			}
+			*/
 		}
+		/*
 		if ( ! $html5 && $columns > 0 && $i % $columns !== 0 ) {
 			$output .= "<br style='clear: both' />";
 		} else {
 			$output .= "<div style='clear: both' /></div>";
 		}
+		*/
 		$output .= "</div>\n";
 
 		return $output;
