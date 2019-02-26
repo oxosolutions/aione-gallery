@@ -16,7 +16,7 @@
  * Plugin Name:       Aione Gallery
  * Plugin URI:        http://oxosolutions.com/products/wordpress-plugins/aione-gallery
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           2.0.1.0
+ * Version:           2.0.1.1
  * Author:            SGS Sandhu
  * Author URI:        http://sgssandhu.com/
  * License:           GPL-2.0+
